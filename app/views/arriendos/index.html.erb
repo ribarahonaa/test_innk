@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Arriendos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Users</th>
+      <th>Films</th>
+      <th>Series</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arriendos.each do |arriendo| %>
+      <tr>
+        <td><%= arriendo.kind %></td>
+        <td><%= arriendo.users_id %></td>
+        <td><%= arriendo.films_id %></td>
+        <td><%= arriendo.series_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

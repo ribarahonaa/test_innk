@@ -19,7 +19,7 @@
           <td><%= film.gender %></td>
           <td><%= film.price %></td>
           <td><%= film.duration %></td>
-          <td></td>
+          <td><%= link_to 'Arrendar', new_arriendo_path(kind: 'film', film: film), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>

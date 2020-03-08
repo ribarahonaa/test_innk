@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @arriendo.kind %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @arriendo.users %>
+</p>
+
+<p>
+  <strong>Films:</strong>
+  <%= @arriendo.films %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @arriendo.series %>
+</p>
+
+<%= link_to 'Edit', edit_arriendo_path(@arriendo) %> |
+<%= link_to 'Back', arriendos_path %>

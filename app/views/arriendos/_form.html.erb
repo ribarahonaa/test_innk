@@ -1,0 +1,43 @@
+<%= form_with(model: arriendo, local: true) do |form| %>
+  <% if arriendo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(arriendo.errors.count, "error") %> prohibited this arriendo from being saved:</h2>
+
+      <ul>
+      <% arriendo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :kind , value: @kind %>
+  </div>
+
+  <div class="field hidden">
+    <%= form.label 'Nombre' %>
+    <input type = 'text' name='user_name' required>
+    <%# form.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Correo' %>
+    <input type = 'email' name='user_email' required>
+    <%# form.text_field :user_email %>
+  </div>
+
+  <% if @kind == 'film' %>
+    <div class="field hidden">
+      <%= form.hidden_field :films_id, value: @film.id %>
+    </div>
+  <% elsif @kind == 'serie' %>
+    <div class="field hidden">
+      <%= form.hidden_field :series_id, value: @serie.id %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

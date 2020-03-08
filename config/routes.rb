@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :arriendos
   resources :series
   resources :films
   get 'index/index'

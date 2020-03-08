@@ -1,0 +1,5 @@
+<h2>Nuevo Arriendo de <%if @kind == 'film' %> <%= @film.title %> <%elsif @kind == 'serie'%> <%= @serie.title %> <%end%></h2>
+
+<%= render 'form', arriendo: @arriendo %>
+
+<%= link_to 'Back', arriendos_path %>

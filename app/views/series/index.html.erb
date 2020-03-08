@@ -19,7 +19,7 @@
           <td><%= serie.gender %></td>
           <td><%= serie.price %></td>
           <td><%= serie.season %></td>
-          <td></td>
+          <td><%= link_to 'Arrendar', new_arriendo_path(kind: 'serie', serie: serie), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>
