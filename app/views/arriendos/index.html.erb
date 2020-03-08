@@ -1,25 +1,44 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p id="notice"><%= notice %></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
 
-<h1>Arriendos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Kind</th>
-      <th>Users</th>
-      <th>Films</th>
-      <th>Series</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @arriendos.each do |arriendo| %>
+<h2>Arriendos</h2>
+<div class="table-responsive-sm">
+  <table  class="table">
+    <thead>
       <tr>
-        <td><%= arriendo.kind %></td>
-        <td><%= arriendo.users_id %></td>
-        <td><%= arriendo.films_id %></td>
-        <td><%= arriendo.series_id %></td>
+        <th scope="col">Tipo</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Nombre Arrendador</th>
+        <th scope="col">Correo Arrendador</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @arriendos.each do |arriendo| %>
+        <tr>
+          <% if arriendo.kind == 'film' %>
+            <td scope="row">Pelicula</td>
+            <% @film = Film.find(arriendo.films_id) %>
+            <td><%= @film.title %></td>
+            <td><%= @film.price %></td>
+          <% elsif arriendo.kind == 'serie' %>
+            <td scope="row">Serie</td>
+            <% @serie = Serie.find(arriendo.series_id) %>
+            <td><%= @serie.title %></td>
+            <td><%= @serie.price %></td>
+          <% end %>
+          <%@user = User.find(arriendo.users_id) %>
+          <td> <%= @user.name %> </td>
+          <td> <%= @user.email %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

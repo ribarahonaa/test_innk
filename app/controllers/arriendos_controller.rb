@@ -52,7 +52,7 @@ class ArriendosController < ApplicationController
 
     respond_to do |format|
       if @arriendo.save
-        format.html { redirect_to arriendos_path, notice: 'Arriendo was successfully created.' }
+        format.html { redirect_to arriendos_path, notice: 'Arriendo Creado Correctamente.' }
         format.json { render :show, status: :created, location: @arriendo }
       else
         format.html { render :new }
