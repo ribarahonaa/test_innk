@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  gender: MyString
+  price: 1
+  season: MyString
+
+two:
+  title: MyString
+  gender: MyString
+  price: 1
+  season: MyString
