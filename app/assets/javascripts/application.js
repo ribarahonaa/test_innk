@@ -16,14 +16,14 @@
 
 function nuevoArriendo(table_id) {
 
-  let checkboxes = document.getElementsByName(table_id)
+  let selected = document.getElementsByName(table_id)
 
   let cont = []
 
 
-  for (let i=0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      cont.push(checkboxes[i].value)
+  for (let i=0; i < selected.length; i++) {
+    if (selected[i].checked) {
+      cont.push(selected[i].value)
     }
   }
 
