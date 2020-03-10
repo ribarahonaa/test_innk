@@ -16,14 +16,14 @@
 
 function nuevoArriendo(table_id) {
 
-  let selected = document.getElementsByName(table_id)
+  let valores = document.getElementsByName(table_id)
 
   let cont = []
 
 
-  for (let i=0; i < selected.length; i++) {
-    if (selected[i].checked) {
-      cont.push(selected[i].value)
+  for (let i=0; i < valores.length; i++) {
+    if (valores[i].checked) {
+      cont.push(valores[i].value)
     }
   }
 
