@@ -1,4 +1,16 @@
-<h2>Nuevo Arriendo de <%if @kind == 'film' %> <%= @film.title %> <%elsif @kind == 'serie'%> <%= @serie.title %> <%end%></h2>
+<h2>Nuevo Arriendo de 
+    <ul>
+        <%if @kind == 'film' %>
+            <% @film.each do |film| %>
+                <li> <%= film.title %> </li>
+            <% end %>
+        <%elsif @kind == 'serie'%> 
+            <% @serie.each do |serie| %>
+                <li> <%= serie.title %> </li>
+            <% end %>
+        <%end%>
+    </ul>
+</h2>
 
 <%= render 'form', arriendo: @arriendo %>
 

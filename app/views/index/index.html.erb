@@ -3,25 +3,30 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">Titulo</th>
         <th scope="col">Genero</th>
         <th scope="col">Precio</th>
         <th scope="col">Duracion</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% @films.each do |film| %>
         <tr>
-          <td scope="row"><%= film.title %></td>
+          <td scope="row"> <input type="checkbox" value="<%= film.id %>" name="tableFilm" onchange="nuevoArriendo('tableFilm')" > </td>
+          <td><%= film.title %></td>
           <td><%= film.gender %></td>
           <td><%= film.price %></td>
           <td><%= film.duration %></td>
-          <td><%= link_to 'Arrendar', new_arriendo_path(kind: 'film', film: film), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <form action="<%= new_arriendo_path %>"  method = "get">
+    <input type="hidden" name="film" id="tableFilm">
+    <input type="hidden" name="kind" value="film">
+    <button type="submit" class="btn btn-primary" > Arrendar </button>
+  </form>
 </div>
 <br/>
 <div class="table-responsive-sm">
@@ -29,23 +34,28 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">Titulo</th>
         <th scope="col">Genero</th>
         <th scope="col">Precio</th>
         <th scope="col">Temporadas</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% @series.each do |serie| %>
         <tr>
-          <td scope="row"><%= serie.title %></td>
+          <td scope="row"> <input type="checkbox" value="<%= serie.id %>" name="tableSerie" onchange="nuevoArriendo('tableSerie')" > </td>
+          <td><%= serie.title %></td>
           <td><%= serie.gender %></td>
           <td><%= serie.price %></td>
           <td><%= serie.season %></td>
-          <td><%= link_to 'Arrendar', new_arriendo_path(kind: 'serie', serie: serie), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <form action="<%= new_arriendo_path %>"  method = "get">
+    <input type="hidden" name="serie" id="tableSerie">
+    <input type="hidden" name="kind" value="serie">
+    <button type="submit" class="btn btn-primary" > Arrendar </button>
+  </form>
 </div>

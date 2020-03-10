@@ -30,11 +30,11 @@
 
     <% if @kind == 'film' %>
       <div class="field hidden">
-        <%= form.hidden_field :films_id, value: @film.id %>
+        <%= form.hidden_field :films_id, value: @filmids %>
       </div>
     <% elsif @kind == 'serie' %>
       <div class="field hidden">
-        <%= form.hidden_field :series_id, value: @serie.id %>
+        <%= form.hidden_field :series_id, value: @serieids %>
       </div>
     <% end %>
 

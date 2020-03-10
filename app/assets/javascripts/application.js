@@ -12,5 +12,23 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+function nuevoArriendo(table_id) {
+
+  let checkboxes = document.getElementsByName(table_id)
+
+  let cont = []
+
+
+  for (let i=0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      cont.push(checkboxes[i].value)
+    }
+  }
+
+  console.log(cont)
+
+  document.getElementById(table_id).value = cont
+
+}

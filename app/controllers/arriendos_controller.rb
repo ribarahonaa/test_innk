@@ -18,9 +18,23 @@ class ArriendosController < ApplicationController
     @kind = params[:kind]
 
     if @kind == 'film'
-      @film = Film.find(params[:film])
+      @film = []
+      @filmids = []
+      @ids = params[:film].split(',')
+      @ids.each do |id|
+        @find = Film.find(id)
+        @film.push( @find )
+        @filmids.push(@find.id)
+      end
     else
-      @serie = Serie.find(params[:serie])
+      @serie = []
+      @serieids = []
+      @ids = params[:serie].split(',')
+      @ids.each do |id|
+        @find = Film.find(id)
+        @serie.push( @find )
+        @serieids.push(@find.id)
+      end
     end
   end
 
@@ -40,15 +54,33 @@ class ArriendosController < ApplicationController
       @user.save
     end
 
-    @arriendo = Arriendo.new
-    @arriendo.kind = arriendo_params[:kind]
     if arriendo_params[:kind] == 'film'
-      @arriendo.films_id = arriendo_params[:films_id]
+      @ids = arriendo_params[:films_id].split(" ")
+
+      @ids.each do |id|
+
+        @arriendo = Arriendo.new
+        @arriendo.kind = arriendo_params[:kind]
+        @arriendo.films_id = id
+        @arriendo.users_id = @user.id
+        @arriendo.save
+      
+      end
+
     elsif arriendo_params[:kind] == 'serie'
-      @arriendo.series_id = arriendo_params[:series_id]
+      @ids = arriendo_params[:series_id].split(" ")
+
+      @ids.each do |id|
+
+        @arriendo = Arriendo.new
+        @arriendo.kind = arriendo_params[:kind]
+        @arriendo.series_id = id
+        @arriendo.users_id = @user.id
+        @arriendo.save
+      
+      end 
+
     end
-    @arriendo.users_id = @user.id
-    @arriendo.save
 
     respond_to do |format|
       if @arriendo.save
