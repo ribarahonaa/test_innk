@@ -12,6 +12,7 @@
   <table  class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">Tipo</th>
         <th scope="col">Titulo</th>
         <th scope="col">Precio</th>
@@ -21,8 +22,9 @@
     </thead>
 
     <tbody>
-      <% @arriendos.each do |arriendo| %>
+      <% @arriendos.each do |arriendo, index| %>
         <tr>
+          <td> <%= index %> </td>
           <% if arriendo.kind == 'film' %>
             <td scope="row">Pelicula</td>
             <% @film = Film.find(arriendo.films_id) %>
