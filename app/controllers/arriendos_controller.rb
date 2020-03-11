@@ -1,10 +1,16 @@
 class ArriendosController < ApplicationController
+  require 'will_paginate'
   before_action :set_arriendo, only: [:show, :edit, :update, :destroy]
 
   # GET /arriendos
   # GET /arriendos.json
   def index
-    @arriendos = Arriendo.all
+    @arriendos = Arriendo.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @arriendos }
+    end
   end
 
   # GET /arriendos/1
@@ -46,7 +52,7 @@ class ArriendosController < ApplicationController
   # POST /arriendos.json
   def create
     @user = User.find_by(email: params[:user_email])
-
+    
     if !@user
       @user = User.new
       @user.name = params[:user_name]

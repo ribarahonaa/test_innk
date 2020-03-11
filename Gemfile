@@ -58,3 +58,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Per Paginate
+gem 'will_paginate','3.1.7'
+
+# Filters
+gem 'ransack', github: 'activerecord-hackery/ransack'

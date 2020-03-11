@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
-
 <div class="table-responsive-sm">
   <h2>Peliculas</h2>
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :title_or_gender_cont , placeholder: 'Titulo o Genero'%>
+    <%= f.submit 'Buscar' %>
+  <% end %>
   <table class="table">
     <thead>
       <tr>

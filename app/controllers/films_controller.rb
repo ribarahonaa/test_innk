@@ -4,7 +4,8 @@ class FilmsController < ApplicationController
   # GET /films
   # GET /films.json
   def index
-    @films = Film.all
+    @q = Film.ransack(params[:q])
+    @films = @q.result
   end
 
   # GET /films/1

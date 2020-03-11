@@ -4,7 +4,8 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Serie.all
+    @q = Serie.ransack(params[:q])
+    @series = @q.result(distinct: true)
   end
 
   # GET /series/1
