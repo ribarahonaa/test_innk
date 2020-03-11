@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
 <div class="table-responsive-sm">
   <h2>Series</h2>
-  <%= search_form_for @q do |s| %>
+  <%=search_form_for(@q, url: "/series", class: "form-inline", role: "form") do |f| %>  
 
-    <%= s.label :title_or_gender_cont, 'Titulo' %>
-    <%= s.search_field :title_or_gender_cont , placeholder: 'Titulo o Genero'%>
+    <%= f.search_field :title_or_gender_cont , placeholder: 'Titulo o Genero'%>
 
-    <%= s.submit 'Buscar' %>
+    <%= f.submit 'Buscar' %>
 
   <% end %>
   <table class="table">
